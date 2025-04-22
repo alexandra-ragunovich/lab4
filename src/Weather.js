@@ -49,6 +49,11 @@ function Weather() {
                 setWeatherData([]);
             });
     };
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            fetchWeather();
+        }
+    };
 
     return (
         <div className="container">
@@ -62,6 +67,7 @@ function Weather() {
                         const value = e.target.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, '');
                         setCity(value.substring(0, 60)); 
                     }}
+                    onKeyDown={handleKeyDown} 
                     placeholder="Введите город"
                     maxLength={60} 
                 />
